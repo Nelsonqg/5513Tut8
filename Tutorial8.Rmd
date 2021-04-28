@@ -64,8 +64,15 @@ worldwidecases <- read_csv("Data/worldwidecases.csv")
 
 DNKCOL <- worldwidecases %>% 
   select(countryterritoryCode, cases) %>% 
-  filter(countryterritoryCode == "DNK" | countryterritoryCode == "COL" )
+  filter(countryterritoryCode == "DNK" | countryterritoryCode == "COL" ) %>% 
+  count(countryterritoryCode, wt = cases)
 DNKCOL
 
 ```
+
+```{r}
+  DNKColplot <- ggplot(DNKCOL, aes(x = DNKCOL$countryterritoryCode, y = DNKCOL$n))+ geom_col()
+DNKColplot
+```
+
 
