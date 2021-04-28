@@ -54,5 +54,18 @@ library(bookdown)
 
 \section*{Country XX3 and YY3}
 
+```{r  reading DNK and COL}
 
+worldwidecases <- read_csv("Data/worldwidecases.csv")
+
+```
+
+```{r summarising}
+
+DNKCOL <- worldwidecases %>% 
+  select(countryterritoryCode, cases) %>% 
+  filter(countryterritoryCode == "DNK" | countryterritoryCode == "COL" )
+DNKCOL
+
+```
 
